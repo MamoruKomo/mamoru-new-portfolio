@@ -63,6 +63,13 @@ function App() {
           <h1 id="hero-title">{profile.name}</h1>
           <p className="role">{profile.role}</p>
           <p className="lead">{profile.summary}</p>
+          <div className="candle-visual" aria-hidden="true">
+            <span className="candle candle-rise" />
+            <span className="candle candle-fall" />
+            <span className="candle candle-rise" />
+            <span className="candle candle-rise" />
+            <span className="candle candle-fall" />
+          </div>
           <div className="hero-actions" aria-label="主要リンク">
             <ExternalLink href={profile.figmaUrl} variant="primary">
               Figmaスライドを見る
@@ -87,7 +94,7 @@ function App() {
               </div>
               <div>
                 <dt>Status</dt>
-                <dd>{profile.marketStatus}</dd>
+                <dd>{profile.status}</dd>
               </div>
               <div>
                 <dt>Deck</dt>
@@ -99,10 +106,10 @@ function App() {
       </section>
 
       <section className="signal-strip" aria-label="ポートフォリオシグナル">
-        {profile.metrics.map((metric) => (
-          <div className="signal" key={metric.label}>
-            <span>{metric.label}</span>
-            <strong>{metric.value}</strong>
+        {profile.signals.map((signal) => (
+          <div className="signal" key={signal.label}>
+            <span>{signal.label}</span>
+            <strong>{signal.value}</strong>
           </div>
         ))}
       </section>
@@ -124,7 +131,7 @@ function App() {
           <h2 id="perspective-title">株好きらしい見方を少しだけ</h2>
         </div>
         <div className="perspective-grid">
-          {profile.investorNotes.map((note) => (
+          {profile.perspectives.map((note) => (
             <article className="perspective-card" key={note.title}>
               <p className="tag">{note.label}</p>
               <h3>{note.title}</h3>
@@ -159,12 +166,29 @@ function App() {
             詳細をFigmaで見る
           </ExternalLink>
         </div>
+        <div className="work-guide">
+          実績の追加・削除は <code>src/data/profile.ts</code> の <code>projects</code> 配列を編集してください。
+        </div>
         <div className="work-grid">
-          {profile.highlights.map((item) => (
-            <article className="work-card" key={item.title}>
-              <p className="tag">{item.tag}</p>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
+          {profile.projects.map((project) => (
+            <article className="work-card" key={project.id}>
+              <div className="work-image">
+                {project.imageUrl ? <img src={project.imageUrl} alt={`${project.title}のプレビュー`} /> : <span>{project.title.slice(0, 2)}</span>}
+              </div>
+              <div className="genre-list" aria-label="ジャンル">
+                {project.genres.map((genre) => (
+                  <span key={genre}>{genre}</span>
+                ))}
+              </div>
+              <p className="tag">{project.stack}</p>
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
+              <dl className="project-meta">
+                <div>
+                  <dt>Role</dt>
+                  <dd>{project.role}</dd>
+                </div>
+              </dl>
             </article>
           ))}
         </div>
