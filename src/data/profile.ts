@@ -1,17 +1,18 @@
 export const profile = {
 	name: '薦田 葵',
 	role: 'Product / Business / Hardware Builder',
+  university: '神山まるごと高専',
+  graduationYear: '2028年3月卒', // ← 実際に使えるものに修正 // ← 希望職種に修正
 	location: 'Tokushima, Japan',
 	summary:
-		'現場観察から課題を見つけ、プロダクト・事業・ハードウェアの形に落とし込むことを軸に活動しています。就活向けに、何を作ってきたかが短時間で伝わる入口として設計しています。',
-	photoUrl: '/projects/mamoru-kao.jpeg',
+		'現場観察から課題を見つけ、プロダクト・事業・ハードウェアの形に落とし込むことを軸に活動しています。',
+	photoUrl: '/projects/mamoru-kao.png',
 	figmaUrl: 'https://www.figma.com/deck/Qk7Af8n6veJD54TOPhFORJ',
 	githubUrl: 'https://github.com/MamoruKomo',
 	facebookUrl: 'https://www.facebook.com/profile.php?id=61554182204234',
 	linkedinUrl: 'https://www.linkedin.com/in/%E8%91%B5-%E8%96%A6%E7%94%B0-110129273/',
 	email: 'komodamamoru@gmail.com',
 	ticker: 'PF',
-	marketStatus: '面談・選考に対応可能',
 	metrics: [
 		{ label: 'Field', value: 'Care / Local' },
 		{ label: 'Focus', value: 'Product & Business' },
