@@ -27,6 +27,25 @@ function ProjectImage({ project, large = false }: { project: Project; large?: bo
   );
 }
 
+function ProjectBreakdown({ project, compact = false }: { project: Project; compact?: boolean }) {
+  const items = [
+    { label: 'Problem', value: project.problem },
+    { label: 'Approach', value: project.approach },
+    { label: 'Outcome', value: project.outcome },
+  ];
+
+  return (
+    <dl className={compact ? 'project-breakdown compact-breakdown' : 'project-breakdown'}>
+      {items.map((item) => (
+        <div key={item.label}>
+          <dt>{item.label}</dt>
+          <dd>{item.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 function getInitialTheme(): Theme {
   const savedTheme = window.localStorage.getItem('portfolio-theme');
 
@@ -68,10 +87,15 @@ function App() {
 
       <section className="hero" id="top" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <p className="eyebrow">Portfolio Editorial / 2026</p>
+          <p className="eyebrow">Portfolio Case File / 2026</p>
           <h1 id="hero-title">{profile.name}</h1>
           <p className="role">{profile.role}</p>
           <p className="lead">{profile.summary}</p>
+          <div className="hero-proof" aria-label="ポートフォリオの見どころ">
+            <span>UI設計</span>
+            <span>Figma資料</span>
+            <span>React実装理解</span>
+          </div>
           <div className="hero-actions" aria-label="主要リンク">
             <ExternalLink href={profile.figmaUrl} variant="primary">
               Figma Deck
@@ -115,11 +139,11 @@ function App() {
           <p>About</p>
         </div>
         <div className="section-body split-copy">
-          <h2 id="about-title">面接前に、判断軸まで伝わる入口。</h2>
+          <h2 id="about-title">作品の見た目だけでなく、判断の理由まで見せる。</h2>
           <div>
             <p>
-              制作物だけを並べるのではなく、課題の見方、設計の理由、実装への落とし込みまでを短く追えるポートフォリオです。
-              詳細はFigma資料にまとめ、ここでは全体像と興味の起点を作ります。
+              画面をきれいに並べるだけでなく、どんな課題を見て、なぜその設計にしたのかまで追えるポートフォリオです。
+              このサイトでは概要を短く見せ、Figma資料では制作背景と判断理由を深掘りできるようにしています。
             </p>
             <ul className="keyword-list" aria-label="キーワード">
               {profile.keywords.map((keyword) => (
@@ -137,7 +161,7 @@ function App() {
         </div>
         <div className="section-body">
           <div className="section-heading">
-            <h2 id="work-title">写真と要点で読む実績。</h2>
+            <h2 id="work-title">課題、工夫、成果で読む実績。</h2>
             <ExternalLink href={profile.figmaUrl} variant="primary">
               Open Deck
             </ExternalLink>
@@ -155,6 +179,7 @@ function App() {
                 <p className="tag">{featuredProject.stack}</p>
                 <h3>{featuredProject.title}</h3>
                 <p>{featuredProject.summary}</p>
+                <ProjectBreakdown project={featuredProject} />
                 <dl className="project-meta">
                   <div>
                     <dt>Role</dt>
@@ -178,6 +203,7 @@ function App() {
                   <p className="tag">{project.stack}</p>
                   <h3>{project.title}</h3>
                   <p>{project.summary}</p>
+                  <ProjectBreakdown project={project} compact />
                 </div>
                 <dl className="project-meta compact">
                   <div>
@@ -197,7 +223,7 @@ function App() {
           <p>Perspective</p>
         </div>
         <div className="section-body">
-          <h2 id="perspective-title">株好きらしい視点は、静かに効かせる。</h2>
+          <h2 id="perspective-title">Growth Notes</h2>
           <div className="note-grid">
             {profile.perspectives.map((note) => (
               <article className="note" key={note.title}>
