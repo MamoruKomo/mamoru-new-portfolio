@@ -487,13 +487,80 @@ h3 {
 
 .work-card {
   display: grid;
+  grid-template-rows: 220px auto;
   align-content: start;
-  gap: 12px;
+  gap: 0;
   border-left: 5px solid var(--warm);
+  overflow: hidden;
 }
 
 .work-card h3 {
   margin-bottom: 0;
+}
+
+.work-card-image {
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface-strong));
+}
+
+.work-card-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.work-card-body {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+}
+
+.hash-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hash-list li {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface-strong) 88%, transparent);
+  color: var(--accent-strong);
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.work-meta {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.work-meta div {
+  display: grid;
+  gap: 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.work-meta dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.work-meta dd {
+  margin: 0;
+  color: var(--text);
+  font-weight: 760;
+  line-height: 1.65;
 }
 
 .contact {
@@ -555,6 +622,10 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .work-card {
+    grid-template-rows: 200px auto;
+  }
+
   .section-heading.with-action {
     grid-template-columns: 1fr;
     align-items: start;
@@ -603,6 +674,10 @@ h3 {
   .card-grid,
   .work-grid {
     grid-template-columns: 1fr;
+  }
+
+  .work-card {
+    grid-template-rows: 190px auto;
   }
 
   .signal {

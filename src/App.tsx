@@ -153,7 +153,7 @@ function App() {
         <div className="section-heading with-action">
           <div>
             <p className="section-kicker">Selected Work</p>
-            <h2 id="work-title">実績の入口</h2>
+            <h2 id="work-title">写真と # で把握できる実績一覧</h2>
           </div>
           <ExternalLink href={profile.figmaUrl} variant="primary">
             詳細をFigmaで見る
@@ -162,9 +162,29 @@ function App() {
         <div className="work-grid">
           {profile.highlights.map((item) => (
             <article className="work-card" key={item.title}>
-              <p className="tag">{item.tag}</p>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
+              <div className="work-card-image">
+                <img src={item.imageUrl} alt={item.imageAlt} />
+              </div>
+              <div className="work-card-body">
+                <p className="tag">{item.tag}</p>
+                <h3>{item.title}</h3>
+                <ul className="hash-list" aria-label={`${item.title} のハッシュタグ`}>
+                  {item.hashtags.map((hash) => (
+                    <li key={hash}>#{hash}</li>
+                  ))}
+                </ul>
+                <p>{item.body}</p>
+                <dl className="work-meta">
+                  <div>
+                    <dt>Role</dt>
+                    <dd>{item.role}</dd>
+                  </div>
+                  <div>
+                    <dt>Impact</dt>
+                    <dd>{item.impact}</dd>
+                  </div>
+                </dl>
+              </div>
             </article>
           ))}
         </div>

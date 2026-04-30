@@ -1,0 +1,14 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" fill="#F5F2EC"/>
+  <rect x="72" y="72" width="1056" height="576" rx="28" fill="#FFFDF8" stroke="#171717" stroke-opacity="0.12"/>
+  <circle cx="288" cy="288" r="156" fill="#C99A2E" fill-opacity="0.16"/>
+  <path d="M286 176C348 176 398 228 398 292C398 352 354 394 300 400V468H272V400C214 392 174 350 174 292C174 228 224 176 286 176Z" fill="#C99A2E"/>
+  <rect x="492" y="154" width="320" height="26" rx="13" fill="#171717"/>
+  <rect x="492" y="214" width="452" height="18" rx="9" fill="#171717" fill-opacity="0.18"/>
+  <rect x="492" y="250" width="398" height="18" rx="9" fill="#171717" fill-opacity="0.12"/>
+  <rect x="492" y="286" width="350" height="18" rx="9" fill="#171717" fill-opacity="0.12"/>
+  <rect x="492" y="368" width="196" height="88" rx="20" fill="#0F6B57"/>
+  <rect x="712" y="368" width="220" height="88" rx="20" fill="#171717" fill-opacity="0.12"/>
+  <text x="124" y="592" fill="#171717" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="700">綿飴屋comora</text>
+  <text x="124" y="634" fill="#6D6A63" font-family="Inter, Arial, sans-serif" font-size="30">Local Business x Sales x Community</text>
+</svg>
