@@ -4,7 +4,7 @@ export const profile = {
 	location: 'Tokushima, Japan',
 	summary:
 		'現場観察から課題を見つけ、プロダクト・事業・ハードウェアの形に落とし込むことを軸に活動しています。就活向けに、何を作ってきたかが短時間で伝わる入口として設計しています。',
-	photoUrl: '',
+	photoUrl: '/projects/mamoru-kao.jpeg',
 	figmaUrl: 'https://www.figma.com/deck/Qk7Af8n6veJD54TOPhFORJ',
 	githubUrl: 'https://github.com/MamoruKomo',
 	facebookUrl: 'https://www.facebook.com/profile.php?id=61554182204234',
