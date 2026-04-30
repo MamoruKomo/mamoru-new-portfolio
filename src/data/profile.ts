@@ -8,14 +8,14 @@ export const profile = {
 	figmaUrl: 'https://www.figma.com/',
 	githubUrl: 'https://github.com/your-account',
 	email: 'your.email@example.com',
-	ticker: 'PORT',
-	marketStatus: 'Open to interviews',
+	ticker: 'PF',
+	marketStatus: '面談・選考に対応可能',
 	keywords: ['UI設計', 'React / TypeScript', 'プロトタイピング', '情報設計'],
 	metrics: [
 		{ label: 'Focus', value: 'UI/UX' },
 		{ label: 'Stack', value: 'React TS' },
 		{ label: 'Deck', value: 'Figma' },
-		{ label: 'Signal', value: 'Growth' },
+		{ label: 'Signal', value: '改善志向' },
 	],
 	tickers: [
 		{ symbol: 'PORT', name: 'Portfolio Index', change: '+12.4%' },
@@ -25,19 +25,19 @@ export const profile = {
 	],
 	investorNotes: [
 		{
-			label: 'Investment Theme',
-			title: '伸びしろ重視のグロース人材',
+			label: 'Theme',
+			title: '伸びしろを丁寧に積み上げる',
 			body: '課題発見、UI設計、実装理解を横断しながら、学習速度と改善サイクルで中長期の成長を狙います。',
 		},
 		{
 			label: 'Catalyst',
-			title: 'Figma資料で詳細開示中',
-			body: '制作背景、判断理由、担当範囲をIR補足資料のように確認できます。面接で深掘り歓迎です。',
+			title: '詳細はFigma資料で開示',
+			body: '制作背景、判断理由、担当範囲を補足資料のように確認できます。面接で深掘りしやすい構成です。',
 		},
 		{
-			label: 'Analyst Note',
-			title: '初回面談レーティング: Buy',
-			body: '短期の派手さより、改善を積み上げるタイプ。詳細材料はFigmaスライドで開示中です。',
+			label: 'Note',
+			title: '派手さより再現性を重視',
+			body: '一度きりの見栄えではなく、考え方と改善のプロセスが伝わるポートフォリオを目指しています。',
 		},
 	],
 	strengths: [
