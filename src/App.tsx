@@ -63,11 +63,17 @@ function App() {
           <h1 id="hero-title">{profile.name}</h1>
           <p className="role">{profile.role}</p>
           <p className="lead">{profile.summary}</p>
+          <div className="social-links" aria-label="SNSリンク">
+            {profile.socialLinks.map((link) => (
+              <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                {link.label}
+              </a>
+            ))}
+          </div>
           <div className="hero-actions" aria-label="主要リンク">
             <ExternalLink href={profile.figmaUrl} variant="primary">
               Figmaスライドを見る
             </ExternalLink>
-            <ExternalLink href={profile.githubUrl}>GitHub</ExternalLink>
             <a className="button button-secondary" href={mailHref}>
               メールする
             </a>
@@ -79,19 +85,15 @@ function App() {
             {profile.photoUrl ? <img src={profile.photoUrl} alt={`${profile.name}の顔写真`} /> : <span>{initials}</span>}
           </div>
           <div className="profile-meta">
-            <p>Snapshot</p>
+            <p>Social / Portfolio</p>
             <dl>
-              <div>
-                <dt>Location</dt>
-                <dd>{profile.location}</dd>
-              </div>
-              <div>
-                <dt>Status</dt>
-                <dd>{profile.marketStatus}</dd>
-              </div>
               <div>
                 <dt>Deck</dt>
                 <dd>Figmaに詳細資料</dd>
+              </div>
+              <div>
+                <dt>SNS</dt>
+                <dd>Facebook / LinkedIn / GitHub</dd>
               </div>
             </dl>
           </div>
@@ -153,7 +155,7 @@ function App() {
         <div className="section-heading with-action">
           <div>
             <p className="section-kicker">Selected Work</p>
-            <h2 id="work-title">写真と # で把握できる実績一覧</h2>
+            <h2 id="work-title">写真と # でざっくりわかるプロジェクト</h2>
           </div>
           <ExternalLink href={profile.figmaUrl} variant="primary">
             詳細をFigmaで見る
@@ -174,16 +176,9 @@ function App() {
                   ))}
                 </ul>
                 <p>{item.body}</p>
-                <dl className="work-meta">
-                  <div>
-                    <dt>Role</dt>
-                    <dd>{item.role}</dd>
-                  </div>
-                  <div>
-                    <dt>Impact</dt>
-                    <dd>{item.impact}</dd>
-                  </div>
-                </dl>
+                <a className="work-detail-link" href={profile.figmaUrl} target="_blank" rel="noreferrer">
+                  詳細はFigmaで見る
+                </a>
               </div>
             </article>
           ))}

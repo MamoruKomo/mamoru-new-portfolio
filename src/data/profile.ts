@@ -7,6 +7,8 @@ export const profile = {
 	photoUrl: '',
 	figmaUrl: 'https://www.figma.com/',
 	githubUrl: 'https://github.com/',
+	facebookUrl: 'https://www.facebook.com/',
+	linkedinUrl: 'https://www.linkedin.com/',
 	email: 'example@example.com',
 	ticker: 'PF',
 	marketStatus: '面談・選考に対応可能',
@@ -14,8 +16,13 @@ export const profile = {
 	metrics: [
 		{ label: 'Field', value: 'Care / Local' },
 		{ label: 'Focus', value: 'Product & Business' },
-		{ label: 'Deck', value: 'Figma' },
+		{ label: 'Projects', value: '3 cases' },
 		{ label: 'Signal', value: 'Growth Oriented' },
+	],
+	socialLinks: [
+		{ label: 'Facebook', href: 'https://www.facebook.com/' },
+		{ label: 'LinkedIn', href: 'https://www.linkedin.com/' },
+		{ label: 'GitHub', href: 'https://github.com/' },
 	],
 	tickers: [
 		{ symbol: 'PORT', name: 'Portfolio Index', change: '+12.4%' },
@@ -58,7 +65,7 @@ export const profile = {
 		{
 			title: 'KiDUKi',
 			tag: 'Care AR Support',
-			body: '介護現場での新人教育やスポットワーカー受け入れを支援するため、ARグラスで注意点や申し送りを提示するプロダクトです。',
+			body: '介護現場で、新人やスポットワーカーが利用者ごとの注意点をその場で確認できるAR支援ツールです。',
 			role: 'Business Model / Hardware Design / Field Research',
 			impact: '30以上の介護施設へヒアリングし、DCONに向けて事業化を検討中。',
 			hashtags: ['介護', 'AR', '現場課題', '事業開発'],
@@ -68,7 +75,7 @@ export const profile = {
 		{
 			title: '綿飴屋comora',
 			tag: 'Local Business',
-			body: '地域イベントで綿飴を販売する小さな事業として、商品設計、価格設定、販売、関係構築まで自分で回しました。',
+			body: '地域イベントで綿飴を販売する小さな事業です。商品づくりから販売、地域の方との関係づくりまで行いました。',
 			role: 'Sales / Event Operation / Local Communication',
 			impact: '約15回の出店経験を通じて、実販売と地域接点の作り方を学びました。',
 			hashtags: ['地域', '販売', '顧客接点', '小さな事業'],
@@ -78,7 +85,7 @@ export const profile = {
 		{
 			title: 'StockLife Todo',
 			tag: 'Investment Support App',
-			body: '資産記録、投資ルール、翌日のToDoをまとめて管理するためのWebアプリ。自分の意思決定を支えるUIを設計しました。',
+			body: '資産記録、投資ルール、翌日のToDoをまとめるWebアプリです。投資行動を見える化し、次の判断をしやすくします。',
 			role: 'Frontend / UI Design / Personal Product',
 			impact: 'HTML / CSS / JavaScript を用いて可視化と継続利用を意識したUIを制作。',
 			hashtags: ['Webアプリ', '投資支援', '可視化', '個人開発'],

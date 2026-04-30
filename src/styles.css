@@ -96,7 +96,8 @@ button:focus-visible {
 .hero-actions,
 .contact-actions,
 .theme-toggle,
-.signal-strip {
+.signal-strip,
+.social-links {
   display: flex;
   align-items: center;
 }
@@ -308,6 +309,29 @@ h3 {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 8px;
+}
+
+.social-links {
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.social-links a {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface-strong) 78%, transparent);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.social-links a:hover {
+  border-color: color-mix(in srgb, var(--accent) 46%, var(--line));
+  color: var(--accent-strong);
 }
 
 .button {
@@ -563,6 +587,19 @@ h3 {
   line-height: 1.65;
 }
 
+.work-detail-link {
+  width: fit-content;
+  margin-top: 2px;
+  color: var(--accent-strong);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.work-detail-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .contact {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -695,12 +732,14 @@ h3 {
   }
 
   .hero-actions,
-  .contact-actions {
+  .contact-actions,
+  .social-links {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .button {
+  .button,
+  .social-links a {
     width: 100%;
     overflow-wrap: anywhere;
   }
