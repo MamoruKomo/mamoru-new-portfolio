@@ -5,14 +5,13 @@ export const profile = {
 	summary:
 		'現場観察から課題を見つけ、プロダクト・事業・ハードウェアの形に落とし込むことを軸に活動しています。就活向けに、何を作ってきたかが短時間で伝わる入口として設計しています。',
 	photoUrl: '',
-	figmaUrl: 'https://www.figma.com/',
-	githubUrl: 'https://github.com/',
-	facebookUrl: 'https://www.facebook.com/',
-	linkedinUrl: 'https://www.linkedin.com/',
-	email: 'example@example.com',
+	figmaUrl: 'https://www.figma.com/deck/Qk7Af8n6veJD54TOPhFORJ',
+	githubUrl: 'https://github.com/MamoruKomo',
+	facebookUrl: 'https://www.facebook.com/profile.php?id=61554182204234',
+	linkedinUrl: 'https://www.linkedin.com/in/%E8%91%B5-%E8%96%A6%E7%94%B0-110129273/',
+	email: 'komodamamoru@gmail.com',
 	ticker: 'PF',
 	marketStatus: '面談・選考に対応可能',
-	keywords: ['現場ヒアリング', '事業開発', 'プロダクト設計', 'ハードウェア'],
 	metrics: [
 		{ label: 'Field', value: 'Care / Local' },
 		{ label: 'Focus', value: 'Product & Business' },
@@ -20,15 +19,9 @@ export const profile = {
 		{ label: 'Signal', value: 'Growth Oriented' },
 	],
 	socialLinks: [
-		{ label: 'Facebook', href: 'https://www.facebook.com/' },
-		{ label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-		{ label: 'GitHub', href: 'https://github.com/' },
-	],
-	tickers: [
-		{ symbol: 'PORT', name: 'Portfolio Index', change: '+12.4%' },
-		{ symbol: 'UX', name: 'User Insight', change: '+8.6%' },
-		{ symbol: 'TS', name: 'Type Safety', change: '+5.2%' },
-		{ symbol: 'FIG', name: 'Figma Deck', change: '+18.0%' },
+		{ label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61554182204234' },
+		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/%E8%91%B5-%E8%96%A6%E7%94%B0-110129273/' },
+		{ label: 'GitHub', href: 'https://github.com/MamoruKomo' },
 	],
 	investorNotes: [
 		{
