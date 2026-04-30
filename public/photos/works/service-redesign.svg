@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Service Redesign Placeholder</title>
+  <desc id="desc">Replace this file with a project image.</desc>
+  <rect width="1600" height="1000" fill="#ddd3c5" />
+  <rect x="110" y="110" width="1380" height="780" fill="#f8f3eb" stroke="#17120f" stroke-opacity="0.15" />
+  <rect x="220" y="220" width="480" height="520" fill="#ceb391" />
+  <rect x="770" y="240" width="510" height="46" fill="#17120f" fill-opacity="0.15" />
+  <rect x="770" y="334" width="420" height="26" fill="#17120f" fill-opacity="0.1" />
+  <rect x="770" y="392" width="350" height="26" fill="#17120f" fill-opacity="0.1" />
+  <rect x="770" y="540" width="300" height="100" fill="#226b5f" fill-opacity="0.85" />
+  <text x="220" y="850" fill="#17120f" font-family="Georgia, serif" font-size="64">SERVICE REDESIGN</text>
+</svg>
