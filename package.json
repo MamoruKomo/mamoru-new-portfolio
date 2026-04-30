@@ -1,5 +1,4 @@
 {
-  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -7,14 +6,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "latest",
-    "react-dom": "latest"
-  },
-  "devDependencies": {
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
     "@vitejs/plugin-react": "latest",
+    "vite": "latest",
     "typescript": "latest",
-    "vite": "latest"
-  }
+    "react": "latest",
+    "react-dom": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest"
+  },
+  "devDependencies": {}
 }

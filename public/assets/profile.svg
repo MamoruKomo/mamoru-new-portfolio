@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400" role="img" aria-labelledby="title desc">
+  <title id="title">Profile image placeholder</title>
+  <desc id="desc">Replace this profile image with your own photo.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4efe7"/>
+      <stop offset="0.56" stop-color="#d8c7ad"/>
+      <stop offset="1" stop-color="#7a5b3c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1400" fill="url(#g)"/>
+  <rect x="86" y="82" width="1028" height="1236" fill="none" stroke="#1b1712" stroke-opacity="0.16" stroke-width="2"/>
+  <circle cx="600" cy="500" r="210" fill="#fff8ec" fill-opacity="0.66"/>
+  <path d="M278 1180c62-222 214-330 322-330s260 108 322 330" fill="#fff8ec" fill-opacity="0.66"/>
+  <text x="102" y="1222" fill="#1b1712" font-family="Georgia, serif" font-size="88">KOMODA</text>
+  <text x="108" y="1292" fill="#1b1712" font-family="Arial, sans-serif" font-size="32" opacity="0.72">replace /public/assets/profile.svg</text>
+</svg>

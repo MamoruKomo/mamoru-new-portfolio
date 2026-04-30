@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Booking flow case visual</title>
+  <desc id="desc">Placeholder visual for booking flow project.</desc>
+  <rect width="1600" height="1100" fill="#efe8dd"/>
+  <rect x="100" y="100" width="1400" height="900" fill="#fbf8f2" stroke="#1b1712" stroke-opacity="0.12"/>
+  <path d="M260 310h360M260 410h520M260 510h460" stroke="#1b1712" stroke-width="32" stroke-opacity="0.16"/>
+  <rect x="230" y="670" width="360" height="120" fill="#9a452c"/>
+  <rect x="820" y="230" width="480" height="610" fill="#1f725f" fill-opacity="0.86"/>
+  <path d="M890 320h320M890 420h250M890 520h360M890 620h280" stroke="#fff8ec" stroke-width="28" stroke-opacity="0.5"/>
+  <text x="120" y="1030" fill="#1b1712" font-family="Georgia, serif" font-size="76">Booking Flow</text>
+</svg>
