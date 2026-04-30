@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react';
-import { profile } from './data/profile';
+import { profile, type Project } from './data/profile';
 
 type Theme = 'light' | 'dark';
 
@@ -19,6 +19,14 @@ function ExternalLink({ href, children, variant = 'secondary' }: { href: string;
   );
 }
 
+function ProjectImage({ project, large = false }: { project: Project; large?: boolean }) {
+  return (
+    <div className={large ? 'project-image project-image-large' : 'project-image'}>
+      {project.imageUrl ? <img src={project.imageUrl} alt={`${project.title}のプレビュー`} /> : <span>{project.title.slice(0, 2)}</span>}
+    </div>
+  );
+}
+
 function getInitialTheme(): Theme {
   const savedTheme = window.localStorage.getItem('portfolio-theme');
 
@@ -31,6 +39,7 @@ function getInitialTheme(): Theme {
 
 function App() {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [featuredProject, ...supportingProjects] = profile.projects;
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -59,150 +68,176 @@ function App() {
 
       <section className="hero" id="top" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <p className="eyebrow">Portfolio Entrance / 2026</p>
+          <p className="eyebrow">Portfolio Editorial / 2026</p>
           <h1 id="hero-title">{profile.name}</h1>
           <p className="role">{profile.role}</p>
           <p className="lead">{profile.summary}</p>
-          <div className="candle-visual" aria-hidden="true">
-            <span className="candle candle-rise" />
-            <span className="candle candle-fall" />
-            <span className="candle candle-rise" />
-            <span className="candle candle-rise" />
-            <span className="candle candle-fall" />
-          </div>
           <div className="hero-actions" aria-label="主要リンク">
             <ExternalLink href={profile.figmaUrl} variant="primary">
-              Figmaスライドを見る
+              Figma Deck
             </ExternalLink>
             <ExternalLink href={profile.githubUrl}>GitHub</ExternalLink>
             <a className="button button-secondary" href={mailHref}>
-              メールする
+              Mail
             </a>
           </div>
         </div>
 
-        <aside className="profile-card" aria-label="プロフィール要約">
-          <div className="portrait" aria-label="顔写真スペース">
+        <aside className="portrait-panel" aria-label="プロフィール写真">
+          <div className="portrait-frame">
             {profile.photoUrl ? <img src={profile.photoUrl} alt={`${profile.name}の顔写真`} /> : <span>{initials}</span>}
           </div>
-          <div className="profile-meta">
-            <p>Snapshot</p>
-            <dl>
-              <div>
-                <dt>Location</dt>
-                <dd>{profile.location}</dd>
-              </div>
-              <div>
-                <dt>Status</dt>
-                <dd>{profile.status}</dd>
-              </div>
-              <div>
-                <dt>Deck</dt>
-                <dd>Figmaに詳細資料</dd>
-              </div>
-            </dl>
-          </div>
+          <dl className="portrait-meta">
+            <div>
+              <dt>Base</dt>
+              <dd>{profile.location}</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>{profile.status}</dd>
+            </div>
+          </dl>
         </aside>
       </section>
 
-      <section className="signal-strip" aria-label="ポートフォリオシグナル">
+      <section className="ticker-strip" aria-label="プロフィール要約">
         {profile.signals.map((signal) => (
-          <div className="signal" key={signal.label}>
+          <div className="ticker-item" key={signal.label}>
             <span>{signal.label}</span>
             <strong>{signal.value}</strong>
           </div>
         ))}
       </section>
 
-      <section className="section intro" id="about" aria-labelledby="about-title">
-        <div>
-          <p className="section-kicker">About</p>
-          <h2 id="about-title">30秒で伝えたいこと</h2>
+      <section className="section about" id="about" aria-labelledby="about-title">
+        <div className="section-label">
+          <span>01</span>
+          <p>About</p>
         </div>
-        <p>
-          このサイトは、すべての実績を長く説明する場所ではなく、面接前に全体像をつかむための入口です。
-          詳細はFigmaスライドへ集約し、制作背景や判断理由を面接で話しやすい順番に整理しています。
-        </p>
-      </section>
-
-      <section className="section" aria-labelledby="perspective-title">
-        <div className="section-heading">
-          <p className="section-kicker">Perspective</p>
-          <h2 id="perspective-title">株好きらしい見方を少しだけ</h2>
-        </div>
-        <div className="perspective-grid">
-          {profile.perspectives.map((note) => (
-            <article className="perspective-card" key={note.title}>
-              <p className="tag">{note.label}</p>
-              <h3>{note.title}</h3>
-              <p>{note.body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="strength-title">
-        <div className="section-heading">
-          <p className="section-kicker">Strengths</p>
-          <h2 id="strength-title">得意な進め方</h2>
-        </div>
-        <div className="card-grid">
-          {profile.strengths.map((strength) => (
-            <article className="card" key={strength.title}>
-              <h3>{strength.title}</h3>
-              <p>{strength.body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section" id="work" aria-labelledby="work-title">
-        <div className="section-heading with-action">
+        <div className="section-body split-copy">
+          <h2 id="about-title">面接前に、判断軸まで伝わる入口。</h2>
           <div>
-            <p className="section-kicker">Selected Work</p>
-            <h2 id="work-title">実績の入口</h2>
+            <p>
+              制作物だけを並べるのではなく、課題の見方、設計の理由、実装への落とし込みまでを短く追えるポートフォリオです。
+              詳細はFigma資料にまとめ、ここでは全体像と興味の起点を作ります。
+            </p>
+            <ul className="keyword-list" aria-label="キーワード">
+              {profile.keywords.map((keyword) => (
+                <li key={keyword}>{keyword}</li>
+              ))}
+            </ul>
           </div>
-          <ExternalLink href={profile.figmaUrl} variant="primary">
-            詳細をFigmaで見る
-          </ExternalLink>
         </div>
-        <div className="work-guide">
-          実績の追加・削除は <code>src/data/profile.ts</code> の <code>projects</code> 配列を編集してください。
+      </section>
+
+      <section className="section work" id="work" aria-labelledby="work-title">
+        <div className="section-label">
+          <span>02</span>
+          <p>Selected Work</p>
         </div>
-        <div className="work-grid">
-          {profile.projects.map((project) => (
-            <article className="work-card" key={project.id}>
-              <div className="work-image">
-                {project.imageUrl ? <img src={project.imageUrl} alt={`${project.title}のプレビュー`} /> : <span>{project.title.slice(0, 2)}</span>}
-              </div>
-              <div className="genre-list" aria-label="ジャンル">
-                {project.genres.map((genre) => (
-                  <span key={genre}>{genre}</span>
-                ))}
-              </div>
-              <p className="tag">{project.stack}</p>
-              <h3>{project.title}</h3>
-              <p>{project.summary}</p>
-              <dl className="project-meta">
-                <div>
-                  <dt>Role</dt>
-                  <dd>{project.role}</dd>
+        <div className="section-body">
+          <div className="section-heading">
+            <h2 id="work-title">写真と要点で読む実績。</h2>
+            <ExternalLink href={profile.figmaUrl} variant="primary">
+              Open Deck
+            </ExternalLink>
+          </div>
+
+          {featuredProject && (
+            <article className="featured-work">
+              <ProjectImage project={featuredProject} large />
+              <div className="featured-copy">
+                <div className="genre-list" aria-label="ジャンル">
+                  {featuredProject.genres.map((genre) => (
+                    <span key={genre}>{genre}</span>
+                  ))}
                 </div>
-              </dl>
+                <p className="tag">{featuredProject.stack}</p>
+                <h3>{featuredProject.title}</h3>
+                <p>{featuredProject.summary}</p>
+                <dl className="project-meta">
+                  <div>
+                    <dt>Role</dt>
+                    <dd>{featuredProject.role}</dd>
+                  </div>
+                </dl>
+              </div>
             </article>
-          ))}
+          )}
+
+          <div className="work-list">
+            {supportingProjects.map((project) => (
+              <article className="work-row" key={project.id}>
+                <ProjectImage project={project} />
+                <div className="work-row-copy">
+                  <div className="genre-list" aria-label="ジャンル">
+                    {project.genres.map((genre) => (
+                      <span key={genre}>{genre}</span>
+                    ))}
+                  </div>
+                  <p className="tag">{project.stack}</p>
+                  <h3>{project.title}</h3>
+                  <p>{project.summary}</p>
+                </div>
+                <dl className="project-meta compact">
+                  <div>
+                    <dt>Role</dt>
+                    <dd>{project.role}</dd>
+                  </div>
+                </dl>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section perspective" aria-labelledby="perspective-title">
+        <div className="section-label">
+          <span>03</span>
+          <p>Perspective</p>
+        </div>
+        <div className="section-body">
+          <h2 id="perspective-title">株好きらしい視点は、静かに効かせる。</h2>
+          <div className="note-grid">
+            {profile.perspectives.map((note) => (
+              <article className="note" key={note.title}>
+                <p className="tag">{note.label}</p>
+                <h3>{note.title}</h3>
+                <p>{note.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section strengths" aria-labelledby="strength-title">
+        <div className="section-label">
+          <span>04</span>
+          <p>Method</p>
+        </div>
+        <div className="section-body">
+          <h2 id="strength-title">得意な進め方。</h2>
+          <div className="method-list">
+            {profile.strengths.map((strength, index) => (
+              <article className="method" key={strength.title}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>{strength.title}</h3>
+                  <p>{strength.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="contact" id="contact" aria-labelledby="contact-title">
-        <div>
-          <p className="section-kicker">Contact</p>
-          <h2 id="contact-title">詳しい話はスライドから</h2>
-          <p>まずはFigmaスライドで全体像をご確認ください。GitHubやメールからも連絡できるようにしています。</p>
-        </div>
+        <p className="eyebrow">Contact</p>
+        <h2 id="contact-title">詳しい話は、資料と会話で。</h2>
+        <p>Figma資料、GitHub、メールの順に見てもらえると全体像がつかみやすいです。</p>
         <div className="contact-actions">
           <ExternalLink href={profile.figmaUrl} variant="primary">
-            Figmaスライド
+            Figma Deck
           </ExternalLink>
           <ExternalLink href={profile.githubUrl}>GitHub</ExternalLink>
           <a className="button button-secondary" href={mailHref}>
@@ -213,7 +248,7 @@ function App() {
 
       <footer className="footer">
         <span>{profile.name}</span>
-        <span>Portfolio Entrance</span>
+        <span>Portfolio Editorial</span>
       </footer>
     </main>
   );
