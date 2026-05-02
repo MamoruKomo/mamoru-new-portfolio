@@ -3,6 +3,9 @@ import { profile } from './data/profile';
 
 type Theme = 'light' | 'dark';
 
+const base = import.meta.env.BASE_URL;
+const asset = (path: string) => base + path.replace(/^\//, '');
+
 const mailHref = `mailto:${profile.email}`;
 const initials = profile.name
   .split(' ')
@@ -82,7 +85,7 @@ function App() {
 
         <aside className="profile-card" aria-label="プロフィール要約">
           <div className="portrait" aria-label="顔写真スペース">
-            {profile.photoUrl ? <img src={profile.photoUrl} alt={`${profile.name}の顔写真`} /> : <span>{initials}</span>}
+            {profile.photoUrl ? <img src={asset(profile.photoUrl)} alt={`${profile.name}の顔写真`} /> : <span>{initials}</span>}
           </div>
           <div className="profile-meta">
             <p>Social / Portfolio</p>
@@ -173,7 +176,7 @@ function App() {
           {profile.highlights.map((item) => (
             <article className="work-card" key={item.title}>
               <div className="work-card-image">
-                <img src={item.imageUrl} alt={item.imageAlt} />
+                <img src={asset(item.imageUrl)} alt={item.imageAlt} />
               </div>
               <div className="work-card-body">
                 <p className="tag">{item.tag}</p>
