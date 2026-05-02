@@ -88,6 +88,14 @@ function App() {
             <p>Social / Portfolio</p>
             <dl>
               <div>
+                <dt>School</dt>
+                <dd>{profile.university}</dd>
+              </div>
+              <div>
+                <dt>Grad</dt>
+                <dd>{profile.graduationYear}</dd>
+              </div>
+              <div>
                 <dt>Deck</dt>
                 <dd>Figmaに詳細資料</dd>
               </div>
